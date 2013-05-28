@@ -35,7 +35,7 @@ mongoose.connect(app.mongoUri, function(err, res) {
   }
 });
 
-var models_path = __dirname + '/app/models';
+var models_path = __dirname + '/models';
 fs.readdirSync(models_path).forEach(function (file) {
     require(models_path+'/'+file);
 });
