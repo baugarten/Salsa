@@ -5,7 +5,9 @@
   "main": "app.js",
   "dependencies": {
     "express": "3.2.4",
-    "ftp": "0.3.1"
+    "ftp": "0.3.1",
+    "uglify-js": "2.3.6",
+    "mongoose": "3.6.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
