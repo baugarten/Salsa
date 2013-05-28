@@ -79,11 +79,11 @@ function sendScript(script) {
 function validateOrganization(req, res, next) {
   var organization_id = req.body.organization_id || req.query.organization_id || -1;
   if (organization_id === -1 ) {
-    return next("Sorry, you didn't include your organization id in the request");
+    return res.send(400, "Sorry, you didn't include your organization id in the request");
   }
   Organization.findById(organization_id, function(err, organization) {
     if (!organization) {
-      return next("Sorry, we couldn't find your organization :(");
+      return res.send(400, "Sorry, we couldn't find your organization :(");
     }
     req.organization = organization;
     next(err);
