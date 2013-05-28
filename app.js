@@ -3,7 +3,6 @@ var express = require('express'),
     client = new FTPClient(),
     fs = require('fs'),
     mongoose = require('mongoose'),
-    uglifyjs = require('uglify-js'),
     scripts = require('./scripts'),
     app = express(),
     initscript = scripts.init(),
@@ -42,7 +41,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 var Organization = mongoose.model('Organization'),
     User = mongoose.model('User');
 
-app.use(express['static'](__dirname));
+app.use(express['static'](__dirname + '/public'));
 app.use(express.bodyParser());
 
 var replacing = {
@@ -84,7 +83,7 @@ function validateOrganization(req, res, next) {
   }
   Organization.findById(organization_id, function(err, organization) {
     if (!organization) {
-      return next(new Error("Sorry, we couldn't find your organization :("));
+      return next("Sorry, we couldn't find your organization :(");
     }
     req.organization = organization;
     next(err);
