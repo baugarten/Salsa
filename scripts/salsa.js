@@ -14,29 +14,29 @@
     href: SERVER_NAME + "/magnific-popup.css"
   }).appendTo("head");
 
-  $('#salsa').after("<form id='salsa-ftp-form' class='mfp-hide white-popup-block'>" +
+  $('#salsa').after("<form id='salsa-form' class='mfp-hide white-popup-block'>" +
     "<h1>Save Changes</h1>" +
-    "<input id='salsa-ftp-username' type='text' placeholder='FTP Username' />" +
-    "<input id='salsa-ftp-password' type='password' placeholder='FTP Password' />" +
+    "<input id='salsa-username' type='text' placeholder='Salsa Username' />" +
+    "<input id='salsa-password' type='password' placeholder='Salsa Password' />" +
     "<input type='submit' value='Save' />" +
   "</form>");
-  $('#salsa').attr('href', '#salsa-ftp-form');
+  $('#salsa').attr('href', '#salsa-form');
   $('#salsa').addClass('open-popup-link');
   $('#salsa').magnificPopup({
     type: 'inline',
     preloader: false,
-    focus: '#salsa-ftp-username'
+    focus: '#salsa-username'
   });
   $('#salsa').magnificPopup('open');
-  $('#salsa-ftp-form').submit(function(ev) {
+  $('#salsa-form').submit(function(ev) {
     ev.preventDefault();
     var data = {};
-    data['salsa-ftp-username'] = $('#salsa-ftp-username').val();
-    data['salsa-ftp-password'] = $('#salsa-ftp-password').val();
-    data['salsa-client-id'] = parseInt(CLIENT_ID, 10);
-    /*data['salsa-ftp-changes'] = {};
+    data['salsa-username'] = $('#salsa-username').val();
+    data['salsa-password'] = $('#salsa-password').val();
+    data['salsa-client-id'] = parseInt(ORGANIZATION_ID, 10);
+    /*data['salsa-changes'] = {};
     $('.salsa-dirty').each(function() {
-      data['salsa-ftp-changes'][$(this).attr('id')] = $(this).find('.jqte_editor').html();
+      data['salsa-changes'][$(this).attr('id')] = $(this).find('.jqte_editor').html();
     });*/
     $.post(SERVER_NAME + '/validate', data, function(data, status, xhr) {
       console.log(data); 

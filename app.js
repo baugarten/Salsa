@@ -6,30 +6,27 @@ var express = require('express'),
     uglifyjs = require('uglify-js'),
     scripts = require('./scripts'),
     app = express(),
-    initscript = fs.readFileSync('scripts/salsa.picante.js'),
+    initscript = scripts.init(),
     editscript;
 
 process.env.PORT = process.env.PORT || 3000;
 
 app.configure('development', function() {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  editscript = { code: '' };
-  scripts.forEach(function(filename, i) {
-    var file = fs.readFileSync(filename, 'utf-8');
-    if (i > 0) {
-      editscript.code += "\n\n";
-    }
-    editscript.code += "/* source: " + filename + " */\n\n" + file;
-  });
-  app.mongoUri = "mongodb://localhost/salsa";
   app.SERVER_NAME = "http://localhost:" + process.env.PORT;
+
+  editscript = scripts.uncompressedEdit();
+
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.mongoUri = "mongodb://localhost/salsa";
 });
 
 app.configure('production', function() {
-  app.use(express.errorHandler());
-  editscript = uglifyjs.minify(scripts),
-  app.mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
   app.SERVER_NAME = "http://salsa-fresca.herokuapp.com";
+
+  editscript = scripts.compressedEdit();
+  
+  app.use(express.errorHandler());
+  app.mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 });
 
 mongoose.connect(app.mongoUri, function(err, res) {
@@ -38,52 +35,58 @@ mongoose.connect(app.mongoUri, function(err, res) {
   }
 });
 
-var replacing = {
-  SERVER_NAME: app.SERVER_NAME,
-  CLIENT_ID: function(req) {
-    return req.body.client_id || req.query.client_id || -1;
-  }
-};
+var models_path = __dirname + '/app/models';
+fs.readdirSync(models_path).forEach(function (file) {
+    require(models_path+'/'+file);
+});
 
 app.use(express['static'](__dirname));
 app.use(express.bodyParser());
 
-app.get('/script', function(req, res, next) {
-  if (!req.body.client_id && !req.query.client_id) {
-    return res.send(400, "Sorry, you didn't include your client id in the request");
-  }
-  var retscript = prependConfig(req, initscript);
-  res.type('application/javascript');
-  res.send(200, retscript);
-});
+var replacing = {
+  SERVER_NAME: app.SERVER_NAME,
+  ORGANIZATION_ID: function(req) {
+    return req.body.organization_id || req.query.organization_id || -1;
+  },
+  ORGANIZATION_SERVERS: function(req) {
+    return (req.organization && req.organization.servers) || [];
+  },
+};
 
-app.get('/edit', function(req, res, next) {
-  if (!req.body.client_id && !req.query.client_id) {
-    return res.send(400, "Sorry, you didn't include your client id in the request");
-  }
-  var retscript = prependConfig(req, editscript.code);
-  res.type('application/javascript');
-  res.send(200, retscript);
-});
+app.get('/script', validateOrganization, sendScript(initscript));
+
+app.get('/edit', validateOrganization, sendScript(editscript));
 
 app.post('/validate', function(req, res, next) {
+});
+
+app.post('/register', function(req, res, next) {
+  
 });
 
 app.post('/put', function(req, res, next) {
   console.log(req.body);
 });
 
-app.listen(process.env.PORT);
-
-function prependConfig(req, string) {
-  var prepend = "";
-  for (var key in replacing) {
-    prepend = prepend + "\n" +
-      "var " + key + " = '" + ((isFunction(replacing[key])) ? replacing[key](req) : replacing[key]) + "';";
+function sendScript(script) {
+  return function(req, res, next) {
+    res.type('application/javascript');
+    res.send(200, script(replacing, req));
   }
-  return prepend + '\n' + string;
 }
 
-function isFunction(object) {
-  return object && {}.toString.call(object) === '[object Function]';
+function validateOrganization(req, res, next) {
+  var organization_id = req.body.organization_id || req.query.organization_id || -1;
+  if (organization_id === -1 ) {
+    return next("Sorry, you didn't include your organization id in the request");
+  }
+  Organization.findById(organization_id, function(err, organization) {
+    if (!organization) {
+      return next("Sorry, we couldn't find your organization :(");
+    }
+    req.organization = organization;
+    next(err);
+  });
 }
+
+app.listen(process.env.PORT);
