@@ -84,7 +84,7 @@ function validateOrganization(req, res, next) {
   }
   Organization.findById(organization_id, function(err, organization) {
     if (!organization) {
-      return next("Sorry, we couldn't find your organization :(");
+      return next(new Error("Sorry, we couldn't find your organization :("));
     }
     req.organization = organization;
     next(err);
