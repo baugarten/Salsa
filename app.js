@@ -39,6 +39,8 @@ var models_path = __dirname + '/models';
 fs.readdirSync(models_path).forEach(function (file) {
     require(models_path+'/'+file);
 });
+var Organization = mongoose.model('Organization'),
+    User = mongoose.model('User');
 
 app.use(express['static'](__dirname));
 app.use(express.bodyParser());
