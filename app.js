@@ -10,12 +10,19 @@ var express = require('express'),
 
 process.env.PORT = process.env.PORT || 3000;
 
+app.configure(function() {
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+});
+
 app.configure('development', function() {
   app.SERVER_NAME = "http://localhost:" + process.env.PORT;
 
   editscript = scripts.uncompressedEdit();
 
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.use(require('less-middleware')({ src: __dirname + '/public/src' }));
+  app.use(express.static(__dirname + '/public/src'));
   app.mongoUri = "mongodb://localhost/salsa";
 });
 
@@ -25,6 +32,7 @@ app.configure('production', function() {
   editscript = scripts.compressedEdit();
   
   app.use(express.errorHandler());
+  app.use(express.static(__dirname + '/public/out'));
   app.mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 });
 
@@ -41,7 +49,6 @@ fs.readdirSync(models_path).forEach(function (file) {
 var Organization = mongoose.model('Organization'),
     User = mongoose.model('User');
 
-app.use(express['static'](__dirname + '/public'));
 app.use(express.bodyParser());
 
 var replacing = {
@@ -67,6 +74,20 @@ app.post('/register', function(req, res, next) {
 
 app.post('/put', function(req, res, next) {
   console.log(req.body);
+});
+
+app.get('/', function(req, res, next) {
+  res.render('index', {
+    title: "Hey There!"  
+  });
+});
+app.get('/register', function(req, res, next) {
+  res.render('users/register', {
+    title: "Sign Up!",
+    company_size_options: [
+      '1', '2-10', '11-25', '26-100', '101-500', '501+'
+    ] 
+  });
 });
 
 function sendScript(script) {
