@@ -81,7 +81,7 @@ app.get('/', function(req, res, next) {
     title: "Hey There!"  
   });
 });
-app.get('/register', function(req, res, next) {
+app.get('/signup', function(req, res, next) {
   res.render('users/register', {
     title: "Sign Up!",
     company_size_options: [
