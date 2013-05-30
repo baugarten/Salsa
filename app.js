@@ -44,7 +44,10 @@ mongoose.connect(app.mongoUri, function(err, res) {
 
 var models_path = __dirname + '/models';
 fs.readdirSync(models_path).forEach(function (file) {
-    require(models_path+'/'+file);
+  if (file.match(/(swp|~)$/)) {
+    return; // ignore tmp files
+  }
+  require(models_path+'/'+file);
 });
 var Organization = mongoose.model('Organization'),
     User = mongoose.model('User');
@@ -81,14 +84,8 @@ app.get('/', function(req, res, next) {
     title: "Hey There!"  
   });
 });
-app.get('/signup', function(req, res, next) {
-  res.render('users/register', {
-    title: "Sign Up!",
-    company_size_options: [
-      '1', '2-10', '11-25', '26-100', '101-500', '501+'
-    ] 
-  });
-});
+
+require('./routes')(app);
 
 function sendScript(script) {
   return function(req, res, next) {

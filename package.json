@@ -10,6 +10,7 @@
     "mongoose": "3.6.x",
     "bcrypt": "0.7.5",
     "jade": "0.30.0",
+    "async": "0.2.9",
     "less-middleware": "0.1.11"
   },
   "scripts": {

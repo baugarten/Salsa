@@ -5,8 +5,8 @@ var UserSchema = new mongoose.Schema({
     organizations: [ { type: 'ObjectId', ref: 'Organization', required: true } ],
     email: { type: 'string', required: true, unique: true },
     hashed_password: { type: 'string', required: true },
-    job_title: { type: 'string', required: true },
-    name: { type: 'string', required: true },
+    jobtitle: { type: 'string', required: true },
+    fullname: { type: 'string', required: true },
     created: { type: Date, default: Date.now },
     reset_pass_token: { type: 'string', select: false },
     reset_pass_sent_at: { type: Date, select: false },
@@ -14,8 +14,10 @@ var UserSchema = new mongoose.Schema({
 });
 UserSchema.virtual('password')
   .set(function(password) {
+    console.log("Hashing password");
     this.salt = this.makeSalt();
     this.hashed_password = this.encryptPassword(password);
+    console.log(this);
   })
 
 UserSchema.methods = {
@@ -27,7 +29,7 @@ UserSchema.methods = {
   },
   encryptPassword: function(password) {
     if (!password) return '';
-    return bcrypt.hashSync(password, salt);
+    return bcrypt.hashSync(password, this.makeSalt());
   }
 };
 

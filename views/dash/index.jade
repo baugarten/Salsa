@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block main
+  h1 Getting Started..
+
+block content
+  To get started, just add the following button to your website:
+  br
+  code 
+    |&lt;a id="salsa" class="salsa" href='#'&gt;Admin&lt;/a&gt; 
+    br
+    |&lt;script src="
+    = domain
+    /script?organization_id=
+    = organization_id
+    |" &gt;&lt;/script&gt;
