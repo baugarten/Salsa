@@ -64,6 +64,10 @@ var replacing = {
   },
 };
 
+app.get('/test', function(req, res, next) {
+  res.render('test');
+});
+
 app.get('/script', validateOrganization, sendScript(initscript));
 
 app.get('/edit', validateOrganization, sendScript(editscript));

@@ -6,12 +6,7 @@
   $("<link/>", {
     rel: "stylesheet",
     type: "text/css",
-    href: SERVER_NAME + "/jquery-te-1.4.0.css"
-  }).appendTo("head");
-  $("<link/>", {
-    rel: "stylesheet",
-    type: "text/css",
-    href: SERVER_NAME + "/magnific-popup.css"
+    href: SERVER_NAME + "/css/scripts.css",
   }).appendTo("head");
 
   $('#salsa').after("<form id='salsa-form' class='mfp-hide white-popup-block'>" +
