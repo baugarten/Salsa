@@ -26,14 +26,14 @@
   $('#salsa-form').submit(function(ev) {
     ev.preventDefault();
     var data = {};
-    data['salsa-username'] = $('#salsa-username').val();
+    data['salsa-email'] = $('#salsa-email').val();
     data['salsa-password'] = $('#salsa-password').val();
-    data['salsa-client-id'] = parseInt(ORGANIZATION_ID, 10);
+    data['salsa-organization-id'] = ORGANIZATION_ID;
     /*data['salsa-changes'] = {};
     $('.salsa-dirty').each(function() {
       data['salsa-changes'][$(this).attr('id')] = $(this).find('.jqte_editor').html();
     });*/
-    $.post(SERVER_NAME + '/validate', data, function(data, status, xhr) {
+    $.post(SERVER_NAME + '/signin', data, function(data, status, xhr) {
       console.log(data); 
     }, 'json');
     

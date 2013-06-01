@@ -1,3 +1,5 @@
+test:
+	NODE_ENV=test mocha
 
 deploy:
 	for file in ./public/src/css/*.less ; do \
@@ -15,4 +17,4 @@ deploy:
 
 clean:
 
-.PHONY: deploy clean
+.PHONY: deploy clean test
