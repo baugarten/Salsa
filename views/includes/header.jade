@@ -2,5 +2,11 @@
   .navbar-inner
     a.brand(href="/") Salsa
     ul.nav
-      li
-        a(href="/signup") Sign Up
+      if user
+        li
+          a(href="/dashboard") Dashboard
+      else
+        li
+          a(href="/signup") Sign Up
+        li
+          a(href="/signin") Sign In

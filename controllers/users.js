@@ -12,6 +12,12 @@ exports.showreg = function(req, res) {
   });
 };
 
+exports.showsignin = function(req, res) {
+  res.render('users/signin', {
+    title: "Sign In!",
+  });
+};
+
 exports.handlereg = function(req, res) {
   var user = new User(req.body),
     organization = new Organization(req.body);
@@ -51,22 +57,5 @@ exports.handlereg = function(req, res) {
 };
 
 exports.signin = function(req, res) {
-  User.find({ email: req.body.salsa-email }, function(err, user) {
-    if (!user) {
-      return res.send(400, "User not found");
-    } else if (err)  {
-      return res.send(500, err);
-    }
-    if (user.authenticate(req.body.salsa-password)) {
-      if (req.params.organization-id) {
-        if (user.organizations.indexOf(req.params.organization-id) === -1) {
-          return res.send(400, "User not a member of specified organization");
-        } 
-      }
-      user.login();
-      res.send(200);
-    } else {
-      res.send(400, "Bad email/password combo");
-    }
-  });
+  res.redirect('/');
 };

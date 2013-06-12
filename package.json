@@ -11,6 +11,8 @@
     "bcrypt": "0.7.5",
     "jade": "0.30.0",
     "async": "0.2.9",
+    "passport": "0.1.17",
+    "passport-local": "0.1.6",
     "less-middleware": "0.1.11"
   },
   "devDependencies": {

@@ -1,0 +1,18 @@
+extends ../layouts/default
+
+block main
+
+block content
+  form.form-horizontal(action="/signin", method="POST")
+    legend Sign in
+    control-group
+      label.control-label(for="email") Email
+      .controls
+        input#email(type="email", placeholder="Email Address", name="email")
+    .control-group
+      label.control-label(for="password") Password
+      .controls
+        input#password(type="password", placeholder="Password", name="password")
+    .control-gropup
+      .controls
+        button#signup.btn(type="submit") Sign In

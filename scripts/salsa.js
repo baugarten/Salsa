@@ -1,4 +1,4 @@
-(function($) {
+(function($, Salsa) {
   if (typeof $ === 'undefined') {
     return;
     // Show error message
@@ -33,9 +33,9 @@
     $('.salsa-dirty').each(function() {
       data['salsa-changes'][$(this).attr('id')] = $(this).find('.jqte_editor').html();
     });*/
-    $.post(SERVER_NAME + '/signin', data, function(data, status, xhr) {
-      console.log(data); 
-    }, 'json');
+    $.getJSON(SERVER_NAME + '/signin?callback=?', data, function(data, status, xhr) {
+      alert(data); 
+    });
     
   });
 
@@ -56,4 +56,4 @@
     });
     $('#salsa').html('Save');
   }
-})(jQuery);
+})(jQuery, window.Salsa = window.Salsa || {} );

@@ -10,8 +10,6 @@ var express = require('express'),
 
 process.env.PORT = process.env.PORT || 3000;
 
-require('./config/express')(app);
-
 var models_path = __dirname + '/models';
 fs.readdirSync(models_path).forEach(function (file) {
   if (file.match(/(swp|~)$/)) {
@@ -22,6 +20,8 @@ fs.readdirSync(models_path).forEach(function (file) {
 
 var Organization = mongoose.model('Organization'),
     User = mongoose.model('User');
+
+require('./config/express')(app);
 
 app.post('/validate', function(req, res, next) {
 });
