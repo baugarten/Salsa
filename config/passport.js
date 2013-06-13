@@ -4,12 +4,10 @@ var passport = require('passport'),
     User = mongoose.model('User');
 
 passport.serializeUser(function(user, done) {
-  console.log("Serialize")
   return done(null, user._id);
 });
 passport.deserializeUser(function(id, done) {
-  console.log("Deserialize")
-  User.findById(id, done);
+  User.findById(id).populate('organizations').exec(done);
 });
 
 passport.use(new LocalStrategy({

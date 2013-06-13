@@ -3,8 +3,19 @@
     a.brand(href="/") Salsa
     ul.nav
       if user
-        li
-          a(href="/dashboard") Dashboard
+        if user.organizations.length === 1
+          li
+            a(href="/dashboard/" + user.organizations[0]._id)= user.organizations[0].name
+        else
+          li.dropdown
+            a.dropdown-toggle(role="button", data-toggle="dropdown", data-target="#") Organizations
+              b.caret
+            ul.dropdown-menu(role="menu")
+              each organization in user.organizations
+                li
+                  a(href="/dashboard/" + organization._id)= organization.name
+                
+            
       else
         li
           a(href="/signup") Sign Up
