@@ -5,7 +5,7 @@ module.exports = function(app) {
       scripts = require('./controllers/scripts');
 
   app.get('/signin', users.showsignin);
-  app.post('/signin', function(a,b,next) { console.log("SIGNING"); next(); }, passport.authenticate('local'), users.signin);
+  app.post('/signin', passport.authenticate('local'), users.signin);
 
   app.get('/signup', users.showreg);
   app.post('/signup', users.handlereg);
