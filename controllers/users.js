@@ -57,5 +57,7 @@ exports.handlereg = function(req, res) {
 };
 
 exports.signin = function(req, res) {
+  req.user.sign_in_count = req.user.sign_in_count + 1;
+  req.user.save();
   res.redirect('/');
 };
