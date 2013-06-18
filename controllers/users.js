@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
   async = require('async'),
+  passport = require('../config/passport'),
   User = mongoose.model('User'),
   Organization = mongoose.model('Organization');
 
@@ -56,8 +57,23 @@ exports.handlereg = function(req, res) {
   });
 };
 
-exports.signin = function(req, res) {
-  req.user.sign_in_count = req.user.sign_in_count + 1;
-  req.user.save();
-  res.redirect('/');
+exports.signin = function(req, res, next) {
+  console.log('signing', req.body)
+  passport.authenticate('local', function(err, user, info) {
+    if (err) return next(err);
+    if (!user) {
+      return res.send(200, req.query.callback + "({ err: 'Incorrect username/password combination' })");
+    }
+    console.log(user);
+    req.logIn(user, function(err) {
+      if (err) return next(err);
+      req.user.sign_in_count = req.user.sign_in_count + 1;
+      req.user.save();
+      if (req.query.callback) {
+        res.send(200, req.query.callback + "({ status: 'OK' })");
+      } else {
+        res.redirect('/');
+      }
+    });
+  })(req, res, next);
 };

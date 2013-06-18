@@ -1,10 +1,7 @@
-/**
- *
- */
 (function(Salsa) {
   var endPoints = [
-    'h1', 'h2', 'h3',
-    'div', 'p'
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7',
+    'p', 'a', 'img'
   ];
 
   Salsa.Fresca = function() {
@@ -27,8 +24,49 @@
     this.findContentBlocks($("body"), fn);
   };
 
+  Salsa.Fresca.prototype.getEndpoint = function(node) {
+    if (endPoints.indexOf(node && node.tagName && node.tagName.toLowerCase()) > -1) {
+      return node;
+    }
+    if ($(node).text().length > 20) {
+      return node;
+    }
+    return this.getEndpoint($(node).parent());
+  };
+
   Salsa.Fresca.prototype.isContentBlock = function(node) {
-    return endPoints.indexOf(node && node.tagName && node.tagName.toLowerCase()) > -1;
+    if ($(node).children().length === 0) {
+      return true;
+    }
+    if (endPoints.indexOf(node && node.tagName && node.tagName.toLowerCase()) > -1) {
+      return true;
+    }
+    var self = this,
+        isBlock = true;;
+    if ($(node).text().length > 50 && $(node).find().length < 20) {
+      $(node).children().each(function(i, child) {
+        if (self.hasContentBlock(child)) {
+          isBlock = false;
+        }
+      });
+      return isBlock;
+    } 
+    return false;
+  };
+
+  Salsa.Fresca.prototype.hasContentBlock = function(node) {
+    if (this.isContentBlock(node)) {
+      return true;
+    }
+    var res = false,
+        self = this;
+    $(node).children().each(function(i, child) {
+      if (self.hasContentBlock(child)) {
+        res = true;
+        return true;
+      }
+    });
+    return res;
   };
 
   Salsa.Fresca.prototype.findContentBlocks = function(root, success) {

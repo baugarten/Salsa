@@ -14,7 +14,7 @@ exports.editscript = function(compress) {
 };
 
 exports.testpage = function(req, res) {
-  res.render('test');
+  res.render(req.url.substr(1));
 };
 
 function sendScript(script) {
@@ -35,11 +35,14 @@ var replacing = {
 };
 
 function validateOrganization(req, res, next) {
+  console.log("Validate Organization")
   var organization_id = req.body.organization_id || req.query.organization_id || -1;
   if (organization_id === -1 ) {
     return res.send(400, "Sorry, you didn't include your organization id in the request");
   }
+  console.log("looking for organization")
   Organization.findById(organization_id, function(err, organization) {
+    console.log("Found organization", organization_id, organization);
     if (!organization) {
       return res.send(400, "Sorry, we couldn't find your organization :(");
     }

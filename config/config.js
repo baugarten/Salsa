@@ -1,10 +1,10 @@
 module.exports = {
   development: {
-    SERVER_NAME: "http://localhost:" + process.env.PORT,
+    SERVER_NAME: "http://localhost:" + (process.env.PORT || '3000'),
     db: "mongodb://localhost/salsa",
   },
   test: {
-    SERVER_NAME: "http://localhost:" + process.env.PORT,
+    SERVER_NAME: "http://localhost:" + (process.env.PORT || '3000'),
     db: "mongodb://localhost/salsa-test",
   },
   production: {

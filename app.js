@@ -4,6 +4,7 @@ var express = require('express'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     scripts = require('./scripts'),
+    config = require('./config/config')[process.env.NODE_ENV || 'development'],
     app = express(),
     initscript = scripts.init(),
     editscript;
@@ -31,8 +32,14 @@ app.post('/put', function(req, res, next) {
 });
 
 app.get('/', function(req, res, next) {
-  res.render('index', {
-    title: "Hey There!"  
+  Organization.find({}, function(err, orgs) {
+    orgs[0]._id
+    console.log(orgs);
+    res.render('index', {
+      title: "Hey There!", 
+      base_url: config.SERVER_NAME,
+      org_id: orgs[0]._id
+    });
   });
 });
 

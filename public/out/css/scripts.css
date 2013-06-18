@@ -803,7 +803,6 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 .jqte_source {
   padding: 10px;
   background: #FFF;
-  min-height: 100px;
   max-height: 900px;
   overflow: auto;
   outline: none;

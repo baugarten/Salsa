@@ -5,7 +5,7 @@ module.exports = function(app) {
       scripts = require('./controllers/scripts');
 
   app.get('/signin', users.showsignin);
-  app.post('/signin', passport.authenticate('local'), users.signin);
+  app.post('/signin', users.signin);
 
   app.get('/signup', users.showreg);
   app.post('/signup', users.handlereg);
@@ -21,4 +21,5 @@ module.exports = function(app) {
     app.get('/edit', scripts.editscript(false));
   });
   app.get('/test', scripts.testpage);
+  app.get('/test2', scripts.testpage);
 }

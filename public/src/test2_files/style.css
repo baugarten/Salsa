@@ -1,0 +1,1266 @@
+/*GENERAL*/
+* {
+        margin: 0px;
+}
+
+img.logoaboutus {
+    width: 200px !important;
+}
+
+#faq a.faq {
+    color: #e8aa05;
+}
+
+ul#faq a {
+    font-size: 15px;
+    font-family: museo500, sans-serif;
+    color: #333;
+    padding-bottom: 20px;
+    line-height: 20px; 
+   // list-style: none; 
+} 
+
+#wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -3em;
+width: 100%; 
+float: left;
+position: relative; 
+}
+
+.footer, .push {
+height: 3em;
+}
+
+
+.footer, .push {
+clear: both;
+}
+
+body {
+    min-width: 100%; 
+    float: left; 
+    height: 100%; 
+
+}
+
+html {
+    float: left;
+    height: 100%; 
+    width: 100%;
+} 
+
+/*FOOTER*/
+
+.footer {
+    font-family: museo500, sans-serif;
+    color: #444;
+    font-size: 10px;
+    text-align: center; 
+}
+
+.footer a {
+    text-decoration: none;
+    color: #444;
+}
+
+.footer a:hover {
+    color:  #e8aa05;
+}
+
+
+/*NAVBAR*/
+    
+#top {
+  // background-image: url('img/bg_nav.png');
+    background-color: white; 
+   // background-size:100%;
+    min-height: 138px; 
+    height: 138px;
+    position: fixed; 
+    min-width: 100%;
+    z-index: 1000; 
+    background-repeat: no-repeat; 
+}
+
+#top img.bg {
+    max-height: 141px; 
+}
+
+.nav {
+    
+    padding-top: 0px; 
+    font-family: museo500, sans-serif; 
+    color: #fff; 
+    text-align: center;
+    background-color: #000;
+    height: 141px;
+  
+} 
+
+#freeclasses a#freeclasses, #firstbike a#freeclasses, #biketypes a#freeclasses, #enginetypes a#freeclasses, #helmets a#freeclasses, #gloves a#freeclasses, #protective a#freeclasses, #newbike a#freeclasses, #norcal a#freeclasses, #beginner a#learntoride, #beginning a#learntoride, #returning a#learntoride, #learndirt a#learntoride, #dirt a#learntoride, #s185 a#learntoride, #s395 a#learntoride, #totalcontrol a#advancedriding, #advancedrider a#advancedriding, #extended a#advancedriding, #track a#trackraceskills, #novice a#trackraceskills, #intermediate a#trackraceskills, #advanced a#trackraceskills, #fix a#fixyourownmoto, #basicbike a#fixyourownmoto, #coolant a#fixyourownmoto, #chain a#fixyourownmoto, #brakes a#fixyourownmoto, #tire-change a#fixyourownmoto, #valve a#fixyourownmoto, #refundtotal a#advancedriding, #faq a#learntoride, #license a#learntoride #refundmotou a#learntoride, #refundz2 a#trackraceskills, #usedbike a#freeclasses, #hearing a#freeclasses, #legal a#freeclasses, #hearing a#freeclasses, #checklist a#trackraceskills, #rider-req a#trackraceskills, #faqtrack a#trackraceskills, #daily-schedule a#trackraceskills, body#classifieds a#classifieds {
+    color: #26478c;
+}
+
+#menumain li:hover a#freeclasses, #menumain li:hover a#learntoride, #menumain li:hover a#advancedriding, #menumain li:hover a#trackraceskills, #menumain li:hover a#fixyourownmoto, #menumain li:hover a#classifieds{
+    color: #26478c;
+}
+
+.last {
+    text-align: right; 
+    z-index: 300;
+    position: absolute;
+    top: 10px;
+    margin-left: 54%;  
+}
+
+ .last h1 {
+    text-transform: uppercase;
+   font-size: 28px;  
+    font-family: museo900, sans-serif; 
+    padding-bottom: 12px;
+    color: #fff;
+}
+
+#menu a {
+   color: #fff;
+   text-decoration: none; 
+   font-size: 17px; 
+}
+
+#menu {
+    color: #fff;
+    font-family: museo500;
+}
+
+#menu a:hover {
+    text-decoration: none;
+    color: #e8aa05; 
+}
+
+.logo img {
+    width: 170px;
+    padding-top: 5px; 
+    position: absolute;
+    padding-left: 0px; 
+    top: 0;
+    left: 20px;
+    z-index: 300;
+}
+
+/*SEARCHBAR */ 
+form {
+    padding-top: 15px; 
+}
+
+input.searchButton {
+    background-image: url('img/search.png'); 
+    width: 24px;
+    height: 21px; 
+    border: none;
+    background-color: white; 
+    margin-left: -120px; 
+    z-index: 100; 
+    
+}
+
+.searchinput {
+    height: 22px;
+    width: 210px; 
+    margin-right: 90px; 
+    font-family:museosans300italic, sans-serif; 
+    padding-left: 10px; 
+    color: #777;
+    font-size: 13px; 
+}
+
+/*MAIN MENU*/
+
+#menumain {  
+    list-style:none;  
+    width:95%;  
+     margin-top: 30px;
+    margin-left: 20px;  
+    margin-bottom: 0px; 
+    height:43px;   
+   padding:115px 20px 0px 0px;   
+    background: white; 
+    position: fixed; 
+    border-bottom: 11px double;
+    z-index: 200; 
+} 
+
+#menumain li {  
+   float:left;  
+   // display:block; 
+   display: inline; 
+    text-align:left;  
+    position:relative;  
+    padding: 7px 9px 13px 9px;   
+    margin-right:7px;  
+    margin-top:6px;  
+    line-height: 1em;
+}  
+
+
+#menumain li:hover {   
+   // padding: 7px 9px 13px 9px;  
+   // background: #26478c; 
+    margin-top: -20px; 
+    padding-top: 33px; 
+ 
+}  
+
+#menumain li a.drop {  
+    font-family:museo900, sans-serif;  
+    color: #000;  
+    display:block;  
+    outline:0;  
+    text-decoration: none;
+    margin: 0 0 0 0;
+}  
+
+#menumain li:hover a {  
+    color:#fff;  
+} 
+
+
+/*#menumain li:hover a.drop {
+    color: #e8aa05;
+}*/
+
+.drop {
+     text-transform: uppercase; 
+     font-size: 18px; 
+}
+
+#navop {
+    font-family: museo500, sans-serif;
+    color: #fff;
+    font-size: 15px; 
+    line-height: 35px; 
+    padding-left: 15px; 
+    padding-top: 7px; 
+}
+
+#navop.learn {
+    padding-top: 0px; 
+} 
+h4.title {
+    padding-left: 15px;
+}
+
+.squishme {
+    padding-left: 0px !important;
+}
+
+li #navop a {
+    text-decoration: none;
+}
+
+li #navop a:hover {
+    color: #e8aa05; 
+}
+
+
+li.nomargin {
+    margin-right: 0px !important;
+    //padding-right: 5px !important; 
+}
+
+/*#nodrop  {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family:museo500, sans-serif !important;  
+    color: #000;  
+    display:block;  
+    outline:0;  
+    text-decoration: none;
+    margin: 0 0 0 0;
+} */ 
+
+#nodrop a {
+    color: #000;
+}
+
+.dropdown_1column,  
+.dropdown_2columns,  
+.dropdown_3columns,  
+.dropdown_4columns,  
+.dropdown_5columns {  
+    margin:13px auto;
+    position:absolute;  
+    left:-999em; /* Hides the drop down */  
+    text-align:left;  
+    padding:10px 5px 10px 5px;   
+    /* Gradient background */  
+    background:#26478c;
+
+}  
+
+.dropdown_1column {width: 300px;}  
+.dropdown_2columns {width: 520px;}  
+.dropdown_3columns {width: 820px;}   
+
+#menumain li:hover .dropdown_1column,  
+#menumain li:hover .dropdown_2columns,  
+#menumain li:hover .dropdown_3columns {
+    left:0px;top:auto;  
+
+} 
+.col_1,  
+.col_2,  
+.col_3 {  
+    display:inline;  
+    float: left;  
+    position: relative;  
+    margin-left: 5px;  
+    margin-right: 5px;  
+}  
+.col_1 {width:250px;} 
+
+/*.col_1.learn {
+     padding-left: 50px;
+      border-left: 2px solid #acc2d8;
+}*/
+
+.col_2 {
+    width:250px;
+}  
+
+/*LEFT NAVIGATION*/
+
+#leftnav {
+    float: left;
+    margin-top: 225px; 
+    padding-left: 20px; 
+    z-index: 100; 
+    
+}
+
+#leftnav .firstfixnav {
+    margin-top: -10px;
+}
+
+.signup {
+    font-family: museo_slab, MS Sans serif, sans serif;
+    text-transform: uppercase; 
+    text-decoration: none;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fffcff), color-stop(1, #ebebeb) );
+	background:-moz-linear-gradient( center top, #fffcff 5%, #ebebeb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcff', endColorstr='#ebebeb');
+	background-color:#fffcff;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#f68b19;
+	font-size:15px; 
+	padding-top: 10px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-bottom: 5px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.sizebutton {
+    font-size: 38px;
+    font-style: bold; 
+}
+.signup:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ebebeb), color-stop(1, #fffcff) );
+	background:-moz-linear-gradient( center top, #ebebeb 5%, #fffcff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb', endColorstr='#fffcff');
+	background-color:#ebebeb;
+}
+
+
+.refund {
+    font-family: museo_slab, MS Sans serif, sans serif;
+    text-transform: uppercase; 
+    text-decoration: none;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fffcff), color-stop(1, #ebebeb) );
+	background:-moz-linear-gradient( center top, #fffcff 5%, #ebebeb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcff', endColorstr='#ebebeb');
+	background-color:#fffcff;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#d70303;
+	font-size:15px; 
+	padding-top: 12px;
+	margin-top: 10px;
+	padding-left: 14px;
+	padding-right: 25px;
+	padding-bottom: 5px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.refundsize {
+    font-size: 18px;
+}
+
+.refund:hover, .gift:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ebebeb), color-stop(1, #fffcff) );
+	background:-moz-linear-gradient( center top, #ebebeb 5%, #fffcff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb', endColorstr='#fffcff');
+	background-color:#ebebeb;
+}
+
+.gift {
+    font-family: museo_slab, MS Sans serif, sans serif;
+    text-transform: uppercase; 
+    text-decoration: none;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fffcff), color-stop(1, #ebebeb) );
+	background:-moz-linear-gradient( center top, #fffcff 5%, #ebebeb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcff', endColorstr='#ebebeb');
+	background-color:#fffcff;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#02810e;
+	font-size:15px; 
+	padding-top: 12px;
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 12px;
+	padding-bottom: 5px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.refundsize {
+    font-size: 18px;
+}
+
+
+
+#leftnavlist {
+    font-family: museo_slab, sans-serif;
+    font-size: 15px;
+    list-style: none;
+    padding-top: 20px;
+    line-height:50px;
+    padding-left: 0px; 
+}
+
+#leftnavlist.moveup {
+    padding-top: 7px;
+}
+
+#leftnavlist .basic {
+    line-height: 23px;
+}
+
+#leftnavlist a {
+    text-decoration: none;
+    color: #000;
+}
+
+#leftnavlist a:hover {
+    color:  #e8aa05; 
+}
+
+#contact .logoimagecontact {
+    width: 200px;
+}
+
+body#biketypes a#biketypes,
+body#firstbike a#firstbike,
+body#norcal a#norcal, 
+body#newbike a#newbike,
+body#enginetypes a#enginetypes,
+body#helmets a#helmets,
+body#protective a#protective,
+body#novice a#novice,
+body#intermediate a#intermediate,
+body#advanced a#advanced,
+body#basicbike a#basicbike,
+body#tire-change a#tire-change,
+body#coolant a#coolant,
+body#chain a#chain,
+body#brakes a#brakes,
+body#valve a#valve,
+body#fork a#fork,
+body#advancedrider a#advancedrider,
+body#engine a#engine,
+body#extended a#extended,
+body#gloves a#gloves,
+body#about a#about,
+body#contact a#contact,
+body#other a#other,
+body#s185 a#s185,
+body#s395 a#s395,
+body#usedbike a#usedbike,
+body#hearing a#hearing,
+body#legal a#legal,
+body#hearing a#hearing,
+body#checklist a#checklist,
+body#faqtrack a#faqtrack,
+body#rider-req a#rider-requirements,
+body#daily-schedule a#daily-schedule {
+    color: #e8aa05; 
+}
+
+
+#mainbody.moveright {
+    margin-left: 200px;
+}
+
+#leftnavlist .totalfix {
+    line-height: 20px;
+}
+
+#leftnavlist.nopad {
+    padding-top: 0px !important;
+}
+
+.basic {
+    padding-bottom: 10px;
+}
+
+.borderlist {
+    border-top: 1px solid #cacaca;
+}
+
+#leftnavlist .borderlist.grayedout a {
+    color: #a3a3a3;
+}
+#leftnavlist .grayedout a:hover {
+    color: #e8aa05;
+}
+
+.grayedout {
+    color: #a3a3a3;
+}
+
+/*PAGE LAYOUT*/
+#mainbody {
+    float: left;
+    margin-top: 225px; 
+    padding-left: 70px; 
+    width: 69%;
+}
+
+.tier h1 {
+    color: #333333;
+    font-family: museo_slab, sans-serif;
+    font-size: 26px; 
+    padding-bottom: 10px; 
+}
+
+.bodytext.small {
+    padding-left: 45px; 
+    font-size: 13px;
+    line-height: 13px; 
+}
+
+#splash h1 {
+    padding-left: 45px;
+    color: #333333;
+    font-family: museo_slab, sans-serif;
+    font-size: 22px; 
+    padding-bottom: 10px; 
+}
+
+
+.tier h2 {
+     color: #333333;
+    font-family: museo_slab, sans-serif;
+    font-size: 15px;
+    padding-bottom: 10px; 
+    font-style: italic; 
+} 
+
+.tier a {
+    text-decoration: none;
+    color: #26478c;
+}
+
+.tier a:hover {
+    color: #e8aa05;
+}
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa6c00), color-stop(1, #f78528) );
+	background:-moz-linear-gradient( center top, #fa6c00 5%, #f78528 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa6c00', endColorstr='#f78528');
+	background-color:#fa6c00;
+	display:inline-block;
+	color:#fff !important;
+	font-family:museo_slab;
+	font-size:20px;
+	font-weight:bold;
+	padding:9px 12px;
+	text-decoration:none;
+	text-transform: uppercase; 
+	margin-right: 55px; 
+ 
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f78528), color-stop(1, #fa6c00) );
+	background:-moz-linear-gradient( center top, #f78528 5%, #fa6c00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f78528', endColorstr='#fa6c00');
+	background-color:#f78528;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.bodytext {
+    font-size: 15px;
+    font-family: museo500, sans-serif;
+    color: #333;
+    padding-bottom: 20px;
+    line-height: 20px;  
+}
+    
+.lastpara {
+    padding-bottom: 40px;
+}
+
+.navbarfix.tracknavcontact {
+    width: 191px;
+}
+/*Gallery*/
+#holder {
+    float: left;
+    padding-bottom: 35px;
+    resize: none; 
+    border: 1px solid #333; 
+}
+
+#demo1 {
+    resize: none !important;
+    float: left; 
+    padding-top: 18px; 
+}
+
+#gallerytitle {
+    padding-top: 50px;
+}
+
+
+#slideshow {
+    width: 400px;
+    float: left;
+    padding-left: 15px; 
+}
+
+#slideshow img {
+    height: 287px;
+}
+
+#loading {
+    float: left;
+}
+#thumbs {
+    float: left; 
+    width: 300px; 
+
+}
+ul.thumbs li {
+    display: inline;
+    float: left;
+    z-index: -200;    
+}
+ul.thumbs li img {
+    width: 98px; 
+    height: 80px;
+    display: inline; 
+    padding-bottom: 10px;    
+}
+
+/*Responsive-Only*/
+#hiddentop {
+    display:none;
+}
+
+
+#menumainsmall {
+    display: none;
+}
+
+#hiddenmenu {
+    display:none;
+}
+
+
+/*FONTS*/ 
+
+@font-face {
+    font-family: 'museo500';
+    src: url('font/museosans_500-webfont-webfont.eot');
+    src: url('font/museosans_500-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/museosans_500-webfont-webfont.woff') format('woff'),
+         url('font/museosans_500-webfont-webfont.ttf') format('truetype'),
+         url('font/museosans_500-webfont-webfont.svg#_.regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'museosans300italic';
+    src: url('font/museosans_300_italic-webfont.eot');
+    src: url('font/museosans_300_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/museosans_300_italic-webfont.woff') format('woff'),
+         url('font/museosans_300_italic-webfont.ttf') format('truetype'),
+         url('font/museosans_300_italic-webfont.svg#museo_sans_300italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+        }
+
+@font-face {
+				font-family: 'museo900';
+				src: url('font/museosans900.eot');
+				src: url('font/museosans900.eot?#iefix') format('embedded-opentype'),
+						 url('font/museosans900.woff') format('woff'),
+						 url('font/museosans900.ttf') format('truetype'),
+						 url('font/museosans900.svg#museosans900') format('svg'),
+						 url('font/MuseoSans_900.otf');
+		}
+		
+		
+@font-face {
+    font-family: 'museo_slab';
+    src: url('font/museo_slab_500-webfont-webfont.eot');
+    src: url('font/museo_slab_500-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/museo_slab_500-webfont-webfont.woff') format('woff'),
+         url('font/museo_slab_500-webfont-webfont.ttf') format('truetype'),
+         url('font/museo_slab_500-webfont-webfont.svg#_.regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+           }
+           
+           
+/*PAGE-SPECIFIC*/
+/*Beginner*/
+/*#beginner  {
+    color: #d43629; 
+}*/
+
+#splash {
+    position: relative; 
+    float: right; 
+    margin-right: 5px; 
+}
+
+#leftnavlist .beginleft {
+    line-height: 22px; 
+    font-size: 20px; 
+    color: #007aa3;
+}
+
+#leftnavlist .beginleft a {
+     color: #007aa3;
+     }
+     
+#leftnavlist .subtitle {
+    color: #555; 
+    font-size: 15px;
+    line-height: 18px;
+    padding-bottom: 10px; 
+}
+
+#leftnavlist .bottom {
+    padding-bottom: 10px; 
+}
+
+#leftnavlist .lastchoice {
+    padding-bottom: 40px; 
+}
+
+/*Bike Types */
+
+#leftnavlist.biketypeleft {
+    padding-top: 0 !important;
+}
+
+#leftnav.topnormal {
+   padding-top: 0px; 
+}
+
+.tier.border {
+    border: 2px solid #cacaca;
+    font-family: museo_slab, sans-serif; 
+    color: #0058ae;
+    text-transform: uppercase; 
+    padding-top: 45px;
+    margin-left: 25px; 
+    margin-bottom: 25px; 
+    padding-left: 25px;  
+    width: 85%; 
+    float: left; 
+    background: white; 
+}
+
+.tier.border a {
+    color: #0058ae;
+    text-decoration: none;
+}
+    
+.tier.border a:hover {
+    color:#e8aa05; 
+} 
+
+.leftcolumn {
+    float: left; 
+}
+
+.rightcolumn {
+    float: left; 
+    padding-left: 150px; 
+}
+
+#clip {
+   position: absolute;
+margin-left: 535px;
+margin-top: -55px;
+    z-index: 100;  
+}
+
+#overlay {
+    position: relative; 
+    display:none;
+    background-color: #fff; 
+    width: 700px;
+    height: 500px; 
+    margin: 0 auto;
+    margin-top: 8%; 
+    
+}
+
+.shadowoverlay {
+    display:none; 
+    z-index: 1000; 
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left:0;
+    background-color: rgb(153, 153, 153);
+    background-color:rgba(0,0,0,0.6);      
+}
+
+#overlay div {
+    display: none;
+}
+
+#arrow-left, #arrow-right {
+    display: inline;
+}
+h1.over {
+    font-family: museo500, sans-serif;
+    font-size: 25px;
+    text-transform: uppercase; 
+    border-bottom: 1px solid #cacaca;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 25px; 
+    line-height: 25px; 
+}
+
+#arrow-right {
+    position: absolute; 
+    top: 47%;
+    right: 20px;     
+}
+
+#arrow-left {
+    position: absolute;
+    top: 47%;
+    left: 20px;  
+}
+
+.moveright {
+    //padding-left: 40px;   
+}
+
+.innerbox {
+    font-family: museo500, sans-serif; 
+    font-size: 15px;
+    color: #333; 
+    padding-left: 35px;
+    padding-right: 35px; 
+}
+
+.overimage {
+    width: 450px;
+    margin-left: 120px; 
+}
+
+.boxerimg {
+    margin-left: 100px;
+}
+
+.boxer { 
+margin-top: 50px;
+} 
+
+.kinginfo {
+    width: 60%;
+    margin-top: 85px;
+    margin-left: 100px; 
+}
+
+.enginetype {
+    margin-left: 250px;
+    margin-top: 80px; 
+} 
+
+.overimage.moped {
+    width: 275px;
+    margin-left: 200px; 
+}
+
+/*Free classes*/
+img.freeclassimg {
+    padding-left: 200px; 
+}
+
+.tier.freeclass {
+    background-image: url('img/bg_grid.png');
+    background-repeat: repeat-y;
+    padding-top: 10px;
+    padding-left: 10px; 
+    width: 718px; 
+}
+    
+
+.tier.freeclasstype {
+    background-image: url('img/bg_grid.png');
+    background-repeat: repeat-y;
+    padding-top: 10px;
+    padding-left: 10px; 
+    width: 718px; 
+    float: left; 
+}
+li.borderlist img {
+    float: right; 
+}
+
+/*Total Control*/
+body#totalcontrol a#totalcontrol {
+    color: #e8aa05; 
+}
+
+
+.indentmenu {
+    font-family: museo500, sans-serif;
+    font-size: 13px; 
+    text-transform: none; 
+    padding-left: 40px;  
+    line-height: 28px; 
+}
+
+.totallogo {
+    padding-top: 20px; 
+}
+
+li#disclaimer {
+    color: #777;
+    line-height: 15px;
+    font-size: 12px; 
+}
+
+#totalcontrol #leftnavlist {
+    padding-top: 0px;
+}
+
+/*Careers*/
+h3 {
+    font-family: museo500, sans-serif;
+    font-size: 25px;
+    color: 333;
+} 
+ li.bodytext {
+    color: #333; 
+} 
+
+#careers .signup {
+    color: #d43629; 
+}
+/*Fix*/
+#fix .signup {
+    color: #d43629; 
+}
+
+/*track*/
+
+  
+
+li.track {
+    line-height: 25px;
+    padding-bottom: 10px; 
+    padding-top: 10px; 
+}
+/*FIXES*/
+a img {
+    border: none !important; 
+    } 
+    
+/*FIRST*/
+.topborderbody {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.centertext {
+    text-align: center;
+    margin-left: 235px;
+    color: #000;
+}
+
+.centertext2 {
+    margin-left: 285px;
+    color: #000;
+}
+
+b {
+    color: #000;
+}
+
+.pushdown {
+    padding-bottom: 50px; 
+}
+
+/*engine types*/
+img.centeralign {
+    margin-left: 30%;  
+}
+
+img.helmet {
+    width: 200px;
+}
+
+.tier.shiftright {
+    margin-left: 50px; 
+}
+/*
+cursor: pointer;*/
+ol li {
+    padding-bottom: 7px;
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+    
+    .drop {
+        font-size: 18px;
+    }
+    
+    #menumain li {
+        margin-right: 10px;
+    }
+}
+.aboutus {
+    padding-top: 25px; 
+}
+
+.tier.aboutus {
+    margin-left: 25px;
+} 
+
+.leftcolumn {
+    float: left;
+}
+.padleftless {
+    padding-left: 50px;
+    
+} 
+
+.padleft {
+    padding-left: 100px;
+}
+
+.tablesize {
+    width: 250px; 
+    
+}
+
+.tablesize2 {
+width: 450px;
+height: 190px; 
+}
+
+.fixbutton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa6c00), color-stop(1, #f78528) );
+	background:-moz-linear-gradient( center top, #fa6c00 5%, #f78528 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa6c00', endColorstr='#f78528');
+	background-color:#fa6c00;
+	display:inline-block;
+	color:#fff !important;
+	font-family:museo_slab;
+	font-size:15px;
+	padding:13px 15px;
+	text-decoration:none;
+ 
+}
+.fixbutton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f78528), color-stop(1, #fa6c00) );
+	background:-moz-linear-gradient( center top, #f78528 5%, #fa6c00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f78528', endColorstr='#fa6c00');
+	background-color:#f78528;
+}
+.fixbutton:active {
+	position:relative;
+	top:1px;
+}
+
+.navbarfix {
+	-moz-box-shadow:inset 0px 3px 5px 0px #fcf7fc;
+	-webkit-box-shadow:inset 0px 3px 5px 0px #fcf7fc;
+	box-shadow:inset 0px 3px 5px 0px #fcf7fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f7f7f7), color-stop(1, #ebebeb) );
+	background:-moz-linear-gradient( center top, #f7f7f7 5%, #ebebeb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#ebebeb');
+	background-color:#f7f7f7;
+	border:2px solid #ededed;
+	display:inline-block;
+	color:#000000;
+	font-family:museo_slab;
+	font-size:15px;
+	font-weight:bold;
+	padding:18px 15px;
+	text-decoration:none;
+}
+
+.padbottom {
+    padding-bottom: 10px;
+}
+
+.navcontact {
+    font-size: 13px;
+    font-family: museo500;
+    line-height: 19px; 
+}
+
+.navcontact a {
+    color: #0058ae;
+    text-decoration: none;
+}
+    
+.navcontact a:hover {
+    color:#e8aa05; 
+} 
+
+h4 {
+    font-family: museo_slab;
+    font-size: 18px;
+    color:#e8aa05; 
+    line-height: 20px; 
+    letter-spacing: -1px; 
+}
+
+h4 a {
+    text-decoration: none;
+    color:#e8aa05 !important; 
+}
+    
+h4 a:hover {
+    color: #fff !important;
+}
+
+.smaller {
+    line-height: 14px !important;
+}
+
+.giftcard {
+    font-family: museo500; 
+    font-size: 22px; 
+}
+
+ #leftnavlist a.certificate {
+    font-family: museo_slab;
+    font-size: 27px;
+    color: #007aa3;
+    line-height: 29px; 
+} 
+
+#leftnavlist a.certificate:hover {
+    color:#e8aa05
+ } 
+
+.tier.narrow {
+    width: 65%;
+}
+
+body#learndirt li#learndirt, 
+body#returning li#returning, 
+body#beginning li#beginning,
+.bluebox {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d7eefa), color-stop(1, #cdebfa) );
+	background:-moz-linear-gradient( center top, #d7eefa 5%, #cdebfa 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d7eefa', endColorstr='#cdebfa');
+	background-color:#d7eefa;
+	display:inline-block;
+	padding:15px 10px;
+}
+
+#leftnavlist.learning li {
+    padding-right: 10px;
+    padding-left: 10px; 
+    margin-bottom: 30px;
+} 
+.beginnav {
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 5px; 
+}
+
+.beginnavtop {
+    padding-top: 10px;
+    border-top: 1px solid #cacaca;
+}
+
+.padtop {
+    padding-top: 10px;   
+}
+
+#toTop {
+	width:100px;
+        border:1px solid #ccc;
+        background:#f7f7f7;
+        text-align:center;
+        padding:5px;
+        position:fixed; /* this is the magic */
+        bottom:30px; /* together with this to put the div at the bottom*/
+        left:40px;
+        cursor:pointer;
+        display:none;
+        color:#333;
+        font-family:museo500;
+        font-size:11px;
+}
+
+
+
+#beginning .hideme, #returning .hideme, #beginner .hideme {
+    display: none;
+    visibility: hidden;
+}
+
+#freeclasses .bodytext, #biketypes .bodytext, #enginetypes .bodytext, #helmets .bodytext, #gloves .bodytext, #protective .bodytext {
+    padding-right: 15px;
+}
