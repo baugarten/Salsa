@@ -63,10 +63,20 @@
   */
 
   function makeEditable() {
-    /*$('body').click(function(ev) {
-      openElement.call(parser.getEndpoint(ev.target));
+    $(window).bind('mercury:ready', function() {
+      console.log(Mercury);
+    })
+    loadMercury();
+    /*var mercury = Mercury.init();
+    Mercury.on('save', function() {
+      console.log(arguments);
+      alert("This is only a demo, you can't save this page");
     });*/
-    parser.each(editElm);
+    /*var editor = new wysihtml5.Editor("salsa-wrapper", {
+      toolbar: "wysihtml5-toolbar",
+      parserRules: wysihtml5ParserRules
+    });*/
+    //parser.each(editElm);
     $('#salsa').html('Save');
   }
 

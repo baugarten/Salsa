@@ -1,5 +1,15 @@
 @import "../bootstrap/bootstrap.less";
 @import "../bootstrap/responsive.less";
+body {
+background-color: #ebebeb;
+background-image: url('/img/bg.jpg');
+background-size: cover; //add fixes for mozilla and ie 
+text-align: center;
+}
+
+.container {
+  max-width: 600px;
+}
 
 .icon-header {
   font-size: 128px;
@@ -9,6 +19,50 @@
   display: block;
 }
 
+#logo {
+  font-size: 30px; 
+  color: #cc1d1d;
+  padding-bottom: 20px;
+//border-bottom:1px solid #cc1d1d; 
+}
+
 .signup {
   padding-top: 20px;
+  text-align: center;
+}
+
+#copy {
+  font-weight: 300;
+  font-size: 42px;
+  font-family: 'Lato', sans-serif;
+}
+
+#info {
+  font-weight: 300;
+}
+
+a.button:hover {
+cursor: pointer; 
+text-decoration: none;
+}
+
+.container {
+  padding-top: 100px; 
+}
+
+.hero-unit {
+  max-width: 870px;
+  height:400px; 
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.9); 
+  .warning-row,.success-row {
+    display: none;
+    text-align: center;
+  } 
+  .warning {
+    color: red;
+  }
+  .success {
+    color: blue;
+  }
 }

@@ -22,4 +22,5 @@ module.exports = function(app) {
   });
   app.get('/test', scripts.testpage);
   app.get('/test2', scripts.testpage);
+  app.get('/test3', scripts.testpage);
 }

@@ -8921,6 +8921,15 @@ a.badge:focus {
     overflow: visible !important;
   }
 }
+body {
+  background-color: #ebebeb;
+  background-image: url('/img/bg.jpg');
+  background-size: cover;
+  text-align: center;
+}
+.container {
+  max-width: 600px;
+}
 .icon-header {
   font-size: 128px;
   padding-top: 40px;
@@ -8928,6 +8937,44 @@ a.badge:focus {
   text-align: center;
   display: block;
 }
+#logo {
+  font-size: 30px;
+  color: #cc1d1d;
+  padding-bottom: 20px;
+}
 .signup {
   padding-top: 20px;
+  text-align: center;
+}
+#copy {
+  font-weight: 300;
+  font-size: 42px;
+  font-family: 'Lato', sans-serif;
+}
+#info {
+  font-weight: 300;
+}
+a.button:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.container {
+  padding-top: 100px;
+}
+.hero-unit {
+  max-width: 870px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.hero-unit .warning-row,
+.hero-unit .success-row {
+  display: none;
+  text-align: center;
+}
+.hero-unit .warning {
+  color: red;
+}
+.hero-unit .success {
+  color: blue;
 }

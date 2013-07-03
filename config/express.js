@@ -34,7 +34,7 @@ module.exports = function(app) {
 
   app.configure('production', function() {
     app.use(express.errorHandler());
-    app.use(express.static(rootPath + '/public/out'));
+    app.use(express.static(rootPath + '/public/src'));
   });
 
 

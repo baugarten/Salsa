@@ -2,11 +2,23 @@ var uglifyjs = require('uglify-js');
   fs = require('fs');
 
 var scripts = [
-    "jquery.min.js",
-    "jquery-te-1.4.0.min.js",
-    "jquery.magnific-popup.min.js",
-    "salsa.fresca.js",
-    "salsa.js"
+    //"jquery.min.js",
+    //"jquery-te-1.4.0.min.js",
+    //"jquery.magnific-popup.min.js",
+    "splash.js",
+    "mercury/mercury_loader.js",
+    //"mercury2/liquidmetal-1.2.1.js",
+    //"mercury2/marked-0.2.8.js",
+//"mercury2/rangy-core.js",
+//    "mercury2/rangy-cssclassapplier.js",
+//    "mercury2/rangy-serializer.js",
+    //"mercury2/mercury.js",
+    //"mercury2/html.js",
+    //"mercury2/plain.js",
+    //"mercury2/text.js",
+    //"mercury2/markdown.js",
+//    "salsa.fresca.js",
+//    "salsa.js"
   ],
   initscript = fs.readFileSync('scripts/salsa.picante.js'),
   editscript;

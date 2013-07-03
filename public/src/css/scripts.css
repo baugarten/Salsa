@@ -1,3 +1,6 @@
+@import "scripts/mercury.bundle.css";
+
+@import "scripts/mercury_regions.bundle.css";
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;

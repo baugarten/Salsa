@@ -1,4 +1,4 @@
-(function() {
+window.onload = function() {
   var salsa = document.getElementById('salsa'),
     loadSalsa = function() {
       var script = document.createElement('script');
@@ -7,4 +7,5 @@
       salsa.removeEventListener('click', loadSalsa, false);
     };
   salsa.addEventListener('click', loadSalsa, false);  
-})();
+};
+

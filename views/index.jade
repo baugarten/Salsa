@@ -1,36 +1,55 @@
-extends layouts/default
+html
+  head
+    title= title
+    link(rel="stylesheet", type="text/css", href="/css/app.css")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js")
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400', rel='stylesheet', type='text/css')
+    script
+      var SERVER_NAME = '#{base_url}'
+    //script(src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js")
+    //script(src="#{base_url}/picante?organization_id=#{org_id}")
+    script(src="/js/scripts/mercury_loader.js?visible=false")
+    script(src="/js/scripts/loadMercury.js")
+  body
+    .wrapper
+      .container
+        .hero-unit
+          h1#logo.logo.mercury-region(data-mercury="full", data-type="editable") SALSA
+          h2#copy(data-mercury="full") Empower clients to make the changes you dread
+          
+          .signup
+            .email-container
+              p#email.mercury-region(data-mercury="simple") [your email]
+            .actions
+              a.btn.btn-large.btn-danger#salsa(href="javascript:toggleMercury()") Try Me
+          br
+          .success-row
+            .success Thanks! We'll be in touch shortly
+          .warning-row
+            .warning We didn't get that... mind trying again?
+        //
+          .row
+            .span4 
+              .row
+                .span4
+                  .icon-header
+                    i.icon-time
+              .row
+                .span4 Save time! Don't let small edits disrupt your workflow. Make edits in place on the website as you spot the necessary content changes.
+            .span4
+              .row
+                .span4
+                  .icon-header
+                    i.icon-wrench 
+              .row
+                .span4 Don't rely on an unreachable developer to change your website -- take control of your own content! Make your own changes and upload them directly to your own FTP server. No more developers overcharging for small changes.
+            .span4
+              .row
+                .span4
+                  .icon-header
+                    i.icon-check
+              .row
+                .span4 Develop websites without fear for future maintenance! No more headaches of small clients demanding text changes -- let them do it themselves!
+    script
+      jQuery(parent).trigger('initialize:frame');
 
-block main
-  .hero-unit
-    .row
-      .span5
-        h1 Do you salsa?
-        p Empower clients to make the text changes you dread
-      .span2
-      .span3.signup
-        p [your email]
-        a.button.button-primary#salsa Edit
-
-block content
-    .row
-      .span4 
-        .row
-          .span4
-            .icon-header
-              i.icon-time
-        .row
-          .span4 Save time! Don't let small edits disrupt your workflow. Make edits in place on the website as you spot the necessary content changes.
-      .span4
-        .row
-          .span4
-            .icon-header
-              i.icon-wrench 
-        .row
-          .span4 Don't rely on an unreachable developer to change your website -- take control of your own content! Make your own changes and upload them directly to your own FTP server. No more developers overcharging for small changes.
-      .span4
-        .row
-          .span4
-            .icon-header
-              i.icon-check
-        .row
-          .span4 Develop websites without fear for future maintenance! No more headaches of small clients demanding text changes -- let them do it themselves!
