@@ -62,7 +62,8 @@ app.get('/', function(req, res, next) {
     res.render('index', {
       title: "Hey There!", 
       base_url: config.SERVER_NAME,
-      org_id: orgs[0]._id
+      org_id: orgs[0]._id,
+      env: config.ENV
     });
   });
 });
