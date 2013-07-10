@@ -7,7 +7,7 @@ function _mixpanel(event, data) {
 function saveEmail() {
   var email = $.trim($("#email textarea").val());
   email = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/.exec(email);
-  ga('_trackEvent', "registration", "saving", email);
+  ga('send', 'event', "registration", "saving", email);
   _mixpanel('saving', {
     email: (email && email[0])
   });
@@ -16,7 +16,7 @@ function saveEmail() {
     email = email[0];
     $.post(SERVER_NAME + "/mailing/signup", { email: email })
     .done(function(data) {
-      ga('_trackEvent', "registration", "saved", email);
+      ga('send', 'event', "registration", "saved", email, 1);
       _mixpanel('saved', {
         email: email
       });
@@ -25,7 +25,7 @@ function saveEmail() {
       close();
     })
     .fail(function(data, resp) {
-      ga('_trackEvent', "registration", "failed", email);
+      ga('send', 'event', "registration", "failed", email);
       _mixpanel('failed', {
         email: email,
         error: resp.responseText
@@ -34,7 +34,7 @@ function saveEmail() {
       $(".warning-row,.signup").show();
     });
   } else {
-    ga('_trackEvent', "registration", "failed", email);
+    ga('send', 'event', "registration", "failed", email);
     _mixpanel('failed', {
       email: email,
       error: "invalid email: " + email
@@ -51,7 +51,7 @@ window.toggleMercury = function() {
     return saveEmail();
   }
   _mixpanel('editing');
-  ga('_trackEvent', "registration", "editing");
+  ga('send', 'event', "registration", "editing");
   editing = !editing;
   Mercury.trigger('toggle:interface');
   $('#salsa').html('Save');
