@@ -54,7 +54,7 @@ window.toggleMercury = function() {
   ga('send', 'event', "registration", "editing");
   editing = !editing;
   Mercury.trigger('toggle:interface');
-  $('#salsa').html('Save');
+  $('#salsa').html('Sign up');
 };
 
 var close = function() {
