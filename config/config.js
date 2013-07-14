@@ -10,7 +10,7 @@ module.exports = {
     db: "mongodb://localhost/salsa-test",
   },
   production: {
-    SERVER_NAME: "http://salsa-fresca.herokuapp.com",
+    SERVER_NAME: "http://fresca.io"
     ENV: 'production',
     db: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL,
   }
