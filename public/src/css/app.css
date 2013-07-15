@@ -8922,9 +8922,8 @@ a.badge:focus {
   }
 }
 body {
-  background-color: #ebebeb;
-  background-image: url('/img/bg.jpg');
-  background-size: cover;
+  background-image: url('/img/mooning.png');
+  background-repeat: repeat;
   text-align: center;
 }
 .container {
@@ -8969,9 +8968,9 @@ a.button:hover {
 }
 .hero-unit {
   max-width: 870px;
-  min-height: 400px;
+  min-height: 300px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(253, 253, 253, 0.85);
 }
 .hero-unit .warning-row,
 .hero-unit .success-row {
