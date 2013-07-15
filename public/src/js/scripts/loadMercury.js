@@ -5,7 +5,8 @@ function _mixpanel(event, data) {
   }
 }
 function saveEmail() {
-  var email = $.trim($("#email textarea").val());
+  var email = $.trim($("#email textarea").val()),
+    rawemail = email;
   email = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/.exec(email);
   ga('send', 'event', "registration", "saving", email);
   _mixpanel('saving', {
@@ -27,7 +28,7 @@ function saveEmail() {
     .fail(function(data, resp) {
       ga('send', 'event', "registration", "failed", email);
       _mixpanel('failed', {
-        email: email,
+        email: rawemail,
         error: resp.responseText
       });
       $(".success-row").hide();
@@ -36,7 +37,7 @@ function saveEmail() {
   } else {
     ga('send', 'event', "registration", "failed", email);
     _mixpanel('failed', {
-      email: email,
+      email: rawemail,
       error: "invalid email: " + email
     });
     alert("That email wasn't valid, try another one")
