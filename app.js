@@ -42,7 +42,7 @@ app.post('/mailing/signup', function(req, res, next) {
   }
   
   var email = new Email({
-    email: check(req.body.email).len(6,64).isEmail()
+    email: req.body.email
   })
   email.save(function(err, email) {
     if (err) {
