@@ -3,10 +3,12 @@ path      = require('path')
 api       = require('./lib/api')
 scripts   = require('./lib/scripts/index')
 passport  = require('./config/passport')
+config    = require('./config/config')
 app       = module.exports = express()
 
 app.set('port', process.env.PORT || 3000)
 app.set('views', __dirname + '/views')
+app.engine('html', require('jade').__express)
 app.use(express.logger('dev'))
 app.use(express.bodyParser())
 app.use(express.methodOverride())
@@ -19,6 +21,9 @@ app.use(api)
 app.use(scripts)
 app.use(express.static(path.join(__dirname, '../build')))
 app.use(app.router)
+
+app.get '/home', (req, res, next) ->
+  res.render('index.html', config: JSON.stringify(config))
 
 if ('development' == app.get('env'))
   app.use(express.errorHandler())

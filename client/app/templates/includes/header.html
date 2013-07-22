@@ -1,0 +1,22 @@
+<div class="navbar" ng-controller="NavigationCtrl">
+  <div class="navbar-inner">
+    <a class="brand" href="/">Salsa</a>
+  </div>
+  <ul class="nav" ng-switch="numOrganizations()">
+    <li class="hide" ng-switch-when="0"></li>
+    <li ng-switch-when="1">
+      <a href="dashboardUrl(getOrganization(0))">{{ getOrganization(0).name }}</a>
+    </li>
+    <li class="dropdown" ng-switch-default>
+      <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#">
+        Organizations
+        <b class="caret" />
+      </a>
+      <ul class="dropdown-menu" role="menu" ng-repeat="organization in getOrganizations()"> 
+        <li>
+          <a href="dashboardUrl(organization)">{{ organization.name }}</a>
+        </li>
+    </li>
+  </ul>
+</div>
+

@@ -16,11 +16,10 @@ module.exports = (grunt)->
   grunt.registerTask('test:e2e', [ 'build', 'karma:e2e' ])
 
   # Clean, validate & compile web-accessible resources
-  grunt.registerTask('build2', [ 'clean', 'jshint', 'copy', 'ngtemplates', 'less' ])
-  grunt.registerTask('build', [ 'clean', 'coffee', 'copy', 'ngtemplates', 'less' ])
+  grunt.registerTask('build', [ 'clean', 'coffeelint', 'copy', 'coffee', 'ngtemplates', 'less' ])
 
   # Optimize pre-built, web-accessible resources for production, primarily `usemin`
-  grunt.registerTask('optimize', [ 'useminPrepare', 'concat', 'uglify', 'mincss', 'usemin' ])
+  grunt.registerTask('optimize', [ 'useminPrepare', 'uglify', 'mincss', 'usemin' ])
 
 
   # Configuration
@@ -31,11 +30,12 @@ module.exports = (grunt)->
     CLIENT_DIR:     'client/'
     BOWER_DIR:      'bower_components/'
     SERVER_DIR:     'server/'
-    SCRIPTS_SRC:    'server/lib/scripts/src'
-    SCRIPTS_LIB:    'server/lib/scripts'
+    SCRIPTS_DIR:     'server/lib/scripts/lib/'
+    SCRIPTS_DEST:     'server/lib/scripts/'
 
     # Glob CONSTANTS
     ALL_FILES:      '**/*'
+    COFFEE_FILES:   '**/*.coffee'
     CSS_FILES:      '**/*.css'
     HTML_FILES:     '**/*.html'
     IMG_FILES:      '**/*.{png,gif,jpg,jpeg}'
@@ -46,6 +46,31 @@ module.exports = (grunt)->
     # Wipe the `build` directory
     clean:
       build:        '<%= BUILD_DIR %>'
+
+    # Compile CoffeeScript files as .js in build directory
+    coffee:
+      files:
+        bare:       true
+        expand:     true
+        cwd:        '<%= CLIENT_DIR %>'
+        src:        '<%= COFFEE_FILES %>'
+        dest:       '<%= BUILD_DIR %>'
+        ext:        '.js'
+
+      app:
+        "<%= SERVER_DIR %>/server.js": "<%= SERVER_DIR %>/server.coffee"
+
+      scripts:
+        bare:       true
+        expand:     true
+        cwd:        '<%= SCRIPTS_DIR %>'
+        src:        '<%= COFFEE_FILES %>'
+        dest:       '<%= SCRIPTS_DEST %>'
+        ext:        '.js'
+
+    # Lint CoffeeScript files
+    coffeelint:
+      files:        '<%= coffee.files %>'
 
     copy:
       # App images from Bower `components` & `client`
@@ -93,20 +118,6 @@ module.exports = (grunt)->
           src:      '<%= HTML_FILES %>'
           dest:     '<%= BUILD_DIR %>'
         ]
-
-    shell:
-      express:
-        command: "coffee <%= SERVER_DIR %>/server.coffee"
-
-    coffee:
-      app:
-        "<%= SERVER_DIR %>/server.js": "<%= SERVER_DIR %>/server.coffee"
-
-      scripts:
-        files:
-          "<%= SCRIPTS_LIB %>/salsa.js": "<%= SCRIPTS_SRC %>/salsa.coffee",
-          "<%= SCRIPTS_LIB %>/salsa.fresca.js": "<%= SCRIPTS_SRC %>/salsa.fresca.coffee",
-          "<%= SCRIPTS_LIB %>/salsa.picante.js": "<%= SCRIPTS_SRC %>/salsa.picante.coffee",
 
     # Express requires `server.script` to reload from changes
     express:
@@ -179,7 +190,12 @@ module.exports = (grunt)->
 
       # Any public-facing changes should reload the browser & re-run tests (which may depend on those resources)
       build:
-        files:      [ '<%= BUILD_DIR + ALL_FILES %>', '!**/<%= BOWER_DIR %>/**' ]
+        files:      '<%= BUILD_DIR + ALL_FILES %>'
+
+      # Changes to coffee code should be validated and re-compiled to the `build`, triggering `regarde:build`
+      coffee:
+        files:      '<%= CLIENT_DIR + COFFEE_FILES %>'
+        tasks:      [ 'coffeelint', 'coffee' ]
 
       # Changes to app code should be validated and re-copied to the `build`, triggering `watch:build`
       js:
@@ -193,8 +209,8 @@ module.exports = (grunt)->
 
       # Changes to server-side code should validate, restart the server, & refresh the browser
       server:
-        files:      '<%= SERVER_DIR + ALL_FILES %>'
-        tasks:      [ 'jshint', 'shell:express' ]
+        files:      '<%= SERVER_DIR + COFFEE_FILES %>'
+        tasks:      [ 'coffeelint', 'express' ]
 
       # Changes to app templates should re-copy & re-compile them, triggering `watch:build`
       templates:
@@ -209,7 +225,9 @@ module.exports = (grunt)->
 
   # Dependencies
   grunt.loadNpmTasks('grunt-angular-templates')
+  grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-jshint')
@@ -217,8 +235,6 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-mincss')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-express-server')
-  grunt.loadNpmTasks('grunt-shell')
   grunt.loadNpmTasks('grunt-karma')
   grunt.loadNpmTasks('grunt-usemin')
